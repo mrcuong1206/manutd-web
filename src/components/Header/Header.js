@@ -7,7 +7,7 @@ import Menu from './Menu';
 const Header = () => {
   return (
     <>
-      <div className="flex bg-red-500 h-17 w-full justify-between">
+      <div className="flex bg-red-500 h-17 w-full justify-between z-10">
         <div className="flex items-center">
           <Logo />
           <Menu />

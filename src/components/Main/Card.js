@@ -6,7 +6,7 @@ const Card = (props) => {
   return (
     <div className="relative cursor-pointer ">
       <div className="position-btn">
-        <Link to="/detail">
+        <Link to={`/detail/${props._id}`}>
           <img src={props.image} alt="img error" className="position-img" />
         </Link>
       </div>

@@ -1,13 +1,10 @@
-.title-manager {
-  font-size: 3rem;
-}
-
 .title-manager::after {
   content: "";
   display: block;
   height: 0.3rem;
-  width: 12rem;
+  width: 9rem;
   background-color: red;
+  margin-top: 0.8rem;
 }
 
 .manager-info {

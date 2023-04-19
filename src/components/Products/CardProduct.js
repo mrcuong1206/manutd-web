@@ -13,11 +13,10 @@ const CardProduct = (props) => {
             className={classes.position_img}
           />
         </Link>
-      </div>
-      <div className="flex flex-col absolute bottom-4 left-4 text-white font-bold text-3xl">
-        <p className="text-xl">{props.number}</p>
-        <span className="text-2xl">{props.firstname}</span>
-        <span>{props.lastname}</span>
+        <div className={classes.add_cart}>
+          <button className="mr-10">Sửa</button>
+          <button>Xóa</button>
+        </div>
       </div>
     </div>
   );

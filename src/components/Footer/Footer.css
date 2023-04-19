@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5rem 5rem 5rem;
+  padding: 3rem 5rem;
 }
 
 .sponsor-items img {
@@ -21,17 +21,17 @@
   position: absolute;
   top: 20%;
   right: 7%;
-  margin-top: 4.5rem;
+  padding-top: 2rem;
 }
 
 .contact-items {
   font-size: 2.6rem;
-  color: black;
+  color: white;
   font-weight: bold;
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  border: 3px solid black;
+  border: 3px solid white;
   position: relative;
   margin-left: 2rem;
   cursor: pointer;
@@ -46,6 +46,7 @@
 
 .contact-items:hover {
   background-color: #ef4444;
+  background-color: white;
   color: white;
   transition: 0.5s;
 }
@@ -53,12 +54,12 @@
 .reyc {
   font-size: 1.2rem;
   text-transform: none;
-  color: black;
+  color: white;
   position: absolute;
   top: 10%;
   left: 7%;
   opacity: 0.5;
   font-style: italic;
   letter-spacing: 1.5px;
-  margin-top: 4.5rem;
+  padding-top: 2.5rem;
 }

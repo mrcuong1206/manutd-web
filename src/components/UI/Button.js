@@ -1,10 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const Button = (props) => {
-  const { children } = props;
+  const { children, onClick } = props;
   return (
     <div>
-      <button className="px-4 py-4 bg-[orange] text-[#fff]">{children}</button>
+      <button
+        onClick={onClick}
+        className="px-4 py-4 bg-red-900 hover:bg-red-600 text-[#fff]"
+      >
+        {children}
+      </button>
     </div>
   );
 };

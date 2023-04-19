@@ -4,7 +4,7 @@ import Button from "../UI/Button";
 
 const Search = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mr-24">
       <Input />
       <Button>Search</Button>
     </div>

@@ -6,17 +6,15 @@ const InputForm = (props) => {
   const { field, fieldState } = useController({ name, control });
   return (
     <>
-      <div className="my-6">
-        <label className=" relative flex items-center pl-2">
-          {label}
-          <input
-            className="ml-1 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-            placeholder={placeholder}
-            type={type}
-            {...field}
-          />
-        </label>
-        <span style={{ color: "red" }}>
+      <div className="my-1">
+        <label className=" relative flex items-center gap-5">{label}</label>
+        <input
+          className=" placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none focus:border-blue-500  sm:text-sm"
+          placeholder={placeholder}
+          type={type}
+          {...field}
+        />
+        <span style={{ color: "red", paddingLeft: "5px" }}>
           {fieldState.error && fieldState.error.message}
         </span>
       </div>

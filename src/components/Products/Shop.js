@@ -10,7 +10,6 @@ const Shop = () => {
     const fetchData = async () => {
       const url = "http://localhost:8000/product/";
       const data = await axios.get(url);
-
       setProduct(data.data.data.products);
     };
     fetchData();

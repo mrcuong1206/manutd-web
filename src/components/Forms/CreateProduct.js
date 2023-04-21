@@ -6,10 +6,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import InputForm from "../UI/InputForm";
 import Button from "../UI/Button";
+import { Link } from "react-router-dom";
 
 // default value
-// name in input === name nay
-
 const defaultValues = {
   name: "",
   stock: "",
@@ -45,7 +44,7 @@ const CreateProduct = () => {
         className="p-3 bg-[#f2edf3]"
       >
         <div>
-          <h1 className="text-4xl p-3 text-regal-green">Create Room</h1>
+          <h1 className="text-4xl p-3 text-regal-green">Create Products</h1>
           <div className=" ml-3 h-1 bg-green-400 w-[15%]"></div>
         </div>
         <div className="grid grid-cols-2 gap-5 py-5 px-7 mt-1">
@@ -60,24 +59,23 @@ const CreateProduct = () => {
               />
               <InputForm
                 label="Image"
-                type="url"
+                type="file"
                 name="image"
                 control={control}
               />
             </div>
-            <div>
+            <div className="flex">
               <Button
                 className="mr-3 p-3 px-8 bg-regal-green hover:bg-green-500 rounded-lg"
                 type="submit"
               >
                 Submit
               </Button>
-              <Button
-                className="p-3 px-8 bg-red-300 hover:bg-red-500 rounded-lg"
-                type="submit"
-              >
-                Cancel
-              </Button>
+              <Link to="/shop">
+                <Button className="p-3 px-8 bg-red-300 hover:bg-red-500 rounded-lg">
+                  Cancel
+                </Button>
+              </Link>
             </div>
           </div>
 

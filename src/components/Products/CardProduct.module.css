@@ -22,9 +22,9 @@
   bottom: 0;
   width: 100%;
   text-align: center;
-  display: none;
+  display: block;
   transition: 2s;
 }
-.position_btn:hover .add_cart {
+/* .position_btn:hover .add_cart {
   display: block;
-}
+} */

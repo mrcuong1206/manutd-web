@@ -1,93 +1,100 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import InputForm from "../UI/InputForm";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+const defaultValues = {
+  email: "",
+  password: "",
+};
+
+const schema = yup.object().shape({
+  email: yup.string().required(),
+  password: yup.string().required(),
+});
+
 function Login() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
-  const handleFirstNameChange = (event) => {
-    setFirstName(event.target.value);
-  };
+  const { control, handleSubmit } = useForm({
+    defaultValues,
+    resolver: yupResolver(schema),
+  });
 
-  const handleLastNameChange = (event) => {
-    setLastName(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const userData = {
-      fname: firstName,
-      lname: lastName,
-      email,
-      password,
-      confirmPassword,
-    };
+  const handleSubmitLogin = async (value) => {
+    // await axios.post("http://localhost:8000/login/", value);
     try {
-      const response = await axios.post(
-        "http://localhost:8000/user/",
-        userData
-      );
-      console.log(response.data);
+      const response = await axios.post("http://localhost:8000/login/", value);
+      if (response.data.status === "ok") {
+        setSuccessMessage(alert("Đăng nhập thành công!"));
+        navigate("/main");
+      } else {
+        setErrorMessage(
+          alert("Email hoặc mật khẩu sai! Vui lòng kiểm tra lại!")
+        );
+      }
     } catch (error) {
-      console.log("fail");
+      setErrorMessage(error.response.data.message);
     }
-    // event.target.reset();
-    setErrorMessage();
   };
 
   return (
-    <div className="py-32">
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
-          <input
-            type="text"
-            value={firstName}
-            onChange={handleFirstNameChange}
-          />
-        </label>
-        <label>
-          Last Name:
-          <input type="text" value={lastName} onChange={handleLastNameChange} />
-        </label>
-        <label>
-          Email:
-          <input type="email" value={email} onChange={handleEmailChange} />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </label>
-        <label>
-          Confirm password:
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-          />
-        </label>
-        {errorMessage && <p>{errorMessage}</p>}
-        <button type="submit">Đăng ký</button>
+    <div className="flex flex-col items-center justify-center py-72 bg-gray-100">
+      <form
+        onSubmit={handleSubmit(handleSubmitLogin)}
+        className="bg-white rounded-lg shadow-md p-8 w-120"
+      >
+        <InputForm
+          label="Email: "
+          type="text"
+          name="email"
+          placeholder="Type email"
+          control={control}
+          className="mb-4"
+        />
+        <InputForm
+          label="Password: "
+          type="password"
+          name="password"
+          placeholder="Type password"
+          control={control}
+          className="mb-4"
+        />
+        <div>
+          <Link to="/sign-up">Don't have account?</Link>
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-16"
+          >
+            Login
+          </button>
+        </div>
       </form>
+      {errorMessage && <p>{errorMessage}</p>}
+      {successMessage && <p>{successMessage}</p>}
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

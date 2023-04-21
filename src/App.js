@@ -8,6 +8,8 @@ import Shop from "./components/Products/Shop";
 import DetailsProduct from "./components/Products/DetailsProduct";
 import FeedBack from "./components/Main/FeedBack";
 import CreateProduct from "./components/Forms/CreateProduct";
+import Edit from "./components/Forms/Edit";
+import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
 
 function App() {
@@ -15,13 +17,15 @@ function App() {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/main" element={<Main />} />
         <Route path="/detail/:_id" element={<Details />} />
         <Route path="/shop/" element={<Shop />} />
         <Route path="/feedback/" element={<FeedBack />} />
         <Route path="/product-details/:_id" element={<DetailsProduct />} />
         <Route path="/create-product/" element={<CreateProduct />} />
-        <Route path="/sign-up" element={<Login />} />
+        <Route path="/edit-product/:_id" element={<Edit />} />
+        <Route path="/sign-up" element={<Register />} />
       </Routes>
       <Footer />
     </div>

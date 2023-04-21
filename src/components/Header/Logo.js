@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Logo = () => {
   return (
     <div className="py-5 px-20">
-      <Link to="/">
+      <Link to="/main">
         <img
           className="cursor-pointer"
           style={{ width: 75 }}

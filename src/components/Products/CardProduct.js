@@ -5,6 +5,7 @@ import axios from "axios";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Button from "../UI/Button";
 
 const CardProduct = (props) => {
   const [product, setProduct] = React.useState([]);
@@ -41,9 +42,9 @@ const CardProduct = (props) => {
         </Link>
         <div className={classes.add_cart}>
           <Link to={`/edit-product/${props._id}`}>
-            <button className="mr-10">Sửa</button>
+            <Button>Sửa</Button>
           </Link>
-          <button onClick={handleDelete}>Xóa</button>
+          <Button onClick={handleDelete}>Xóa</Button>
           <ToastContainer
             position="top-center"
             autoClose={2000}

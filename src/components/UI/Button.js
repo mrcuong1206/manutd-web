@@ -6,7 +6,7 @@ const Button = (props) => {
     <div>
       <button
         onClick={onClick}
-        className="px-4 py-4 bg-red-900 hover:bg-red-600 text-[#fff]"
+        className="px-4 py-4 bg-red-900 hover:bg-red-600 text-[#fff] rounded"
       >
         {children}
       </button>

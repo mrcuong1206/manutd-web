@@ -2,6 +2,7 @@ import React from "react";
 import CardProduct from "./CardProduct";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Button from "../UI/Button";
 
 const Shop = () => {
   const [product, setProduct] = React.useState([]);
@@ -18,11 +19,9 @@ const Shop = () => {
   return (
     <div className="py-32">
       <div className="py-6 px-[15%]">
-        <Link to="/sign-up">
-          <button>Sign up</button>
-        </Link>
         <Link to="/create-product">
-          <button>Add</button>
+          {/* <button>Add</button> */}
+          <Button>Thêm</Button>
         </Link>
       </div>
       <div className="py-6 px-[15%] grid gap-7 grid-cols-4">

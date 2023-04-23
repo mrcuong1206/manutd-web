@@ -24,6 +24,9 @@
   text-align: center;
   display: block;
   transition: 2s;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 56px;
 }
 /* .position_btn:hover .add_cart {
   display: block;

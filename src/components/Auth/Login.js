@@ -33,7 +33,6 @@ function Login() {
   });
 
   const handleSubmitLogin = async (value) => {
-    // await axios.post("http://localhost:8000/login/", value);
     try {
       const response = await axios.post("http://localhost:8000/login/", value);
       if (response.data.status === "ok") {
@@ -50,11 +49,12 @@ function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-72 bg-gray-100">
+    <div className="flex flex-col items-center justify-center py-64 bg-gray-100">
       <form
         onSubmit={handleSubmit(handleSubmitLogin)}
         className="bg-white rounded-lg shadow-md p-8 w-120"
       >
+        <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
         <InputForm
           label="Email: "
           type="text"

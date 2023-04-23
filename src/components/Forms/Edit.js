@@ -64,7 +64,7 @@ const Edit = () => {
         className="p-3 bg-[#f2edf3]"
       >
         <div>
-          <h1 className="text-4xl p-3 text-regal-green">Edit Room</h1>
+          <h1 className="text-4xl p-3 text-regal-green">Edit Product</h1>
           <div className=" ml-3 h-1 bg-green-400 w-[15%]"></div>
         </div>
         <div className="grid grid-cols-2 gap-5 py-5 px-7 mt-1">

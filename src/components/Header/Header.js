@@ -1,6 +1,5 @@
 import React from "react";
 import Logo from "./Logo";
-// import Search from "./Search";
 import Menu from "./Menu";
 import { Link } from "react-router-dom";
 
@@ -12,11 +11,8 @@ const Header = () => {
           <Logo />
           <Menu />
         </div>
-        {/* <div className="flex items-center">
-          <Search />
-        </div> */}
         <div className="flex items-center pr-20 font-bold  text-white text-xl">
-          <Link to="/">LOGIN</Link>
+          <Link to="/">LOG OUT</Link>
         </div>
       </div>
     </>

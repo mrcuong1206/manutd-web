@@ -37,6 +37,8 @@ function Login() {
       const response = await axios.post("http://localhost:8000/login/", value);
       if (response.data.status === "ok") {
         setSuccessMessage(alert("Đăng nhập thành công!"));
+        //
+        localStorage.setItem("token", response.data.token);
         navigate("/main");
       } else {
         setErrorMessage(

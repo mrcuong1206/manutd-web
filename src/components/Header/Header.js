@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
 import Menu from "./Menu";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -12,7 +11,7 @@ const Header = () => {
           <Menu />
         </div>
         <div className="flex items-center pr-20 font-bold  text-white text-xl">
-          <Link to="/">LOG OUT</Link>
+          {/* <Link to="/">LOG OUT</Link> */}
         </div>
       </div>
     </>

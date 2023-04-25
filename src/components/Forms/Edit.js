@@ -19,6 +19,7 @@ const defaultValues = {
   sale: "",
   description: "",
   image: "",
+  category: "",
 };
 
 const schema = yup.object().shape({
@@ -28,6 +29,7 @@ const schema = yup.object().shape({
   sale: yup.number().required(),
   description: yup.string().required(),
   image: yup.string().required(),
+  category: yup.string().required(),
 });
 
 const Edit = () => {
@@ -45,6 +47,7 @@ const Edit = () => {
     setValue("sale", data.data.data.product.sale);
     setValue("description", data.data.data.product.description);
     setValue("image", data.data.data.product.image);
+    setValue("category", data.data.data.product.category);
   };
 
   React.useEffect(() => {
@@ -74,7 +77,6 @@ const Edit = () => {
                 label="Name"
                 type="text"
                 name="name"
-                placeholder="Type Room"
                 control={control}
               />
               <InputForm
@@ -115,31 +117,28 @@ const Edit = () => {
           </div>
           <div>
             <InputForm
-              label="price"
+              label="Price"
               type="text"
               name="price"
-              placeholder="Type bed"
               control={control}
             />
+            <InputForm label="Sale" type="text" name="sale" control={control} />
             <InputForm
-              label="sale"
-              type="text"
-              name="sale"
-              placeholder="Type bath"
-              control={control}
-            />
-            <InputForm
-              label="desc"
+              label="Description"
               type="text"
               name="description"
-              placeholder="Type tivi"
               control={control}
             />
             <InputForm
-              label="image"
+              label="Image"
               type="text"
               name="image"
-              placeholder="Type bar"
+              control={control}
+            />
+            <InputForm
+              label="Category"
+              type="text"
+              name="category"
               control={control}
             />
           </div>

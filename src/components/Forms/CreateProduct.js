@@ -8,6 +8,10 @@ import InputForm from "../UI/InputForm";
 import Button from "../UI/Button";
 import { Link } from "react-router-dom";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+
 // default value
 const defaultValues = {
   name: "",
@@ -15,6 +19,7 @@ const defaultValues = {
   price: "",
   sale: "",
   description: "",
+  category: "",
   image: "",
 };
 
@@ -24,10 +29,13 @@ const schema = yup.object().shape({
   price: yup.number().required(),
   sale: yup.number().required(),
   description: yup.string().required(),
+  category: yup.string().required(),
   image: yup.string().required(),
 });
 
 const CreateProduct = () => {
+  const navigate = useNavigate();
+
   const { control, handleSubmit } = useForm({
     defaultValues,
     resolver: yupResolver(schema),
@@ -35,6 +43,9 @@ const CreateProduct = () => {
 
   const handleCreateProduct = async (value) => {
     await axios.post("http://localhost:8000/product/", value);
+    // toast.success("Thêm sản phẩm thành công");
+    alert("Thêm sản phẩm thành công");
+    navigate("/shop");
   };
 
   return (
@@ -59,7 +70,7 @@ const CreateProduct = () => {
               />
               <InputForm
                 label="Image"
-                type="file"
+                type="text"
                 name="image"
                 control={control}
               />
@@ -81,7 +92,7 @@ const CreateProduct = () => {
 
           <div className="">
             <InputForm
-              label="Desc"
+              label="Description"
               type="text"
               name="description"
               placeholder="Type desc"
@@ -108,6 +119,25 @@ const CreateProduct = () => {
               name="sale"
               placeholder="Type sale"
               control={control}
+            />
+            <InputForm
+              label="Category"
+              type="text"
+              name="category"
+              placeholder="VD: Mũ, Quần, Áo,..."
+              control={control}
+            />
+            <ToastContainer
+              position="top-center"
+              autoClose={1000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
             />
           </div>
         </div>

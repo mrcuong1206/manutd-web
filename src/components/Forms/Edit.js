@@ -64,13 +64,14 @@ const Edit = () => {
     <div className="py-32">
       <form
         onSubmit={handleSubmit(handleEditFrom)}
-        className="p-3 bg-[#f2edf3]"
+        className="-mt-3 bg-[#f2edf3]"
       >
         <div>
-          <h1 className="text-4xl p-3 text-regal-green">Edit Product</h1>
-          <div className=" ml-3 h-1 bg-green-400 w-[15%]"></div>
+          <h1 className="text-4xl p-10 text-regal-green font-bold italic">
+            Edit Product
+          </h1>
         </div>
-        <div className="grid grid-cols-2 gap-5 py-5 px-7 mt-1">
+        <div className="grid grid-cols-2 gap-10 py-10 px-16 mt-1">
           <div className="flex flex-col">
             <div>
               <InputForm
@@ -80,67 +81,71 @@ const Edit = () => {
                 control={control}
               />
               <InputForm
-                label="Stock"
+                label="Image"
                 type="text"
-                name="stock"
+                name="image"
+                control={control}
+              />
+              <InputForm
+                label="Description"
+                type="text"
+                name="description"
+                control={control}
+              />
+
+              <InputForm
+                label="Category"
+                type="text"
+                name="category"
                 control={control}
               />
             </div>
-            <div className="flex">
+          </div>
+
+          <div className="">
+            <ToastContainer
+              position="top-center"
+              autoClose={1000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
+            <InputForm
+              label="Stock"
+              type="number"
+              name="stock"
+              control={control}
+            />
+            <InputForm
+              label="Price"
+              type="number"
+              name="price"
+              control={control}
+            />
+            <InputForm
+              label="Sale"
+              type="number"
+              name="sale"
+              control={control}
+            />
+            <div className="flex gap-10 mt-5 mx-10">
               <Button
                 className="mr-3 p-3 px-8 bg-regal-green hover:bg-green-500 rounded-lg"
                 type="submit"
               >
                 Submit
               </Button>
-              <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-              />
               <Link to="/shop">
-                <Button
-                  className="p-3 px-8 bg-red-300 hover:bg-red-500 rounded-lg"
-                  type="button"
-                >
+                <Button className="p-3 px-8 bg-red-300 hover:bg-red-500 rounded-lg">
                   Back
                 </Button>
               </Link>
             </div>
-          </div>
-          <div>
-            <InputForm
-              label="Price"
-              type="text"
-              name="price"
-              control={control}
-            />
-            <InputForm label="Sale" type="text" name="sale" control={control} />
-            <InputForm
-              label="Description"
-              type="text"
-              name="description"
-              control={control}
-            />
-            <InputForm
-              label="Image"
-              type="text"
-              name="image"
-              control={control}
-            />
-            <InputForm
-              label="Category"
-              type="text"
-              name="category"
-              control={control}
-            />
           </div>
         </div>
       </form>

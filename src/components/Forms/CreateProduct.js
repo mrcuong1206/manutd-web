@@ -43,7 +43,6 @@ const CreateProduct = () => {
 
   const handleCreateProduct = async (value) => {
     await axios.post("http://localhost:8000/product/", value);
-    // toast.success("Thêm sản phẩm thành công");
     alert("Thêm sản phẩm thành công");
     navigate("/shop");
   };
@@ -52,13 +51,14 @@ const CreateProduct = () => {
     <div className="py-32">
       <form
         onSubmit={handleSubmit(handleCreateProduct)}
-        className="p-3 bg-[#f2edf3]"
+        className="-mt-3 bg-[#f2edf3]"
       >
         <div>
-          <h1 className="text-4xl p-3 text-regal-green">Create Products</h1>
-          <div className=" ml-3 h-1 bg-green-400 w-[15%]"></div>
+          <h1 className="text-4xl p-10 text-regal-green font-bold italic">
+            Create Product
+          </h1>
         </div>
-        <div className="grid grid-cols-2 gap-5 py-5 px-7 mt-1">
+        <div className="grid grid-cols-2 gap-10 py-10 px-16 mt-1">
           <div className="flex flex-col">
             <div>
               <InputForm
@@ -72,33 +72,40 @@ const CreateProduct = () => {
                 label="Image"
                 type="text"
                 name="image"
+                placeholder="Type ../assets/product/ao?giay?mu/"
                 control={control}
               />
-            </div>
-            <div className="flex">
-              <Button
-                className="mr-3 p-3 px-8 bg-regal-green hover:bg-green-500 rounded-lg"
-                type="submit"
-              >
-                Submit
-              </Button>
-              <Link to="/shop">
-                <Button className="p-3 px-8 bg-red-300 hover:bg-red-500 rounded-lg">
-                  Cancel
-                </Button>
-              </Link>
+              <InputForm
+                label="Description"
+                type="text"
+                name="description"
+                placeholder="Type desc"
+                control={control}
+              />
+
+              <InputForm
+                label="Category"
+                type="text"
+                name="category"
+                placeholder="VD: Mũ, Giày, Áo,..."
+                control={control}
+              />
             </div>
           </div>
 
           <div className="">
-            <InputForm
-              label="Description"
-              type="text"
-              name="description"
-              placeholder="Type desc"
-              control={control}
+            <ToastContainer
+              position="top-center"
+              autoClose={1000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
             />
-
             <InputForm
               label="Stock"
               type="number"
@@ -120,25 +127,19 @@ const CreateProduct = () => {
               placeholder="Type sale"
               control={control}
             />
-            <InputForm
-              label="Category"
-              type="text"
-              name="category"
-              placeholder="VD: Mũ, Quần, Áo,..."
-              control={control}
-            />
-            <ToastContainer
-              position="top-center"
-              autoClose={1000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="light"
-            />
+            <div className="flex gap-10 mt-5 mx-10">
+              <Button
+                className="mr-3 p-3 px-8 bg-regal-green hover:bg-green-500 rounded-lg"
+                type="submit"
+              >
+                Submit
+              </Button>
+              <Link to="/shop">
+                <Button className="p-3 px-8 bg-red-300 hover:bg-red-500 rounded-lg">
+                  Cancel
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </form>

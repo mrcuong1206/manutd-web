@@ -7,6 +7,8 @@ import Button from "../UI/Button";
 const Shop = () => {
   const [product, setProduct] = React.useState([]);
   const [category, setCategory] = React.useState("all");
+  // Load more
+  const [visibleProduct, setVisibleProduct] = React.useState(12);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +21,11 @@ const Shop = () => {
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
+  };
+
+  // Load more
+  const handleLoadMore = () => {
+    setVisibleProduct(visibleProduct + 4);
   };
 
   return (
@@ -35,6 +42,7 @@ const Shop = () => {
           <option value="all">Tất cả</option>
           <option value="Áo">Áo</option>
           <option value="Mũ">Mũ</option>
+          <option value="Giày">Giày</option>
         </select>
       </div>
       <div className="py-6 px-[15%] grid gap-7 grid-cols-4">
@@ -46,8 +54,14 @@ const Shop = () => {
               }
               return item.category === category;
             })
+            .slice(0, visibleProduct)
             .map((item) => <CardProduct key={item._id} {...item} />)}
       </div>
+      {visibleProduct < product.length && (
+        <div className="text-center mt-10 -mb-10">
+          <Button onClick={handleLoadMore}>Load more</Button>
+        </div>
+      )}
     </div>
   );
 };

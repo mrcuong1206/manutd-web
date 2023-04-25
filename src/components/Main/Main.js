@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import axios from "axios";
 import Loading from "../UI/Loading";
+import Button from "../UI/Button";
 
 const Main = (props) => {
   const [player, setPlayer] = React.useState([]);
@@ -9,6 +10,8 @@ const Main = (props) => {
   // Search
   const [query, setQuery] = React.useState("");
   const [originalPlayer, setOriginalPlayer] = React.useState([]);
+  // Load more
+  const [visiblePlayerCount, setVisiblePlayerCount] = React.useState(12);
 
   const fetchData = async () => {
     const url = "http://localhost:8000/todo/";
@@ -31,6 +34,11 @@ const Main = (props) => {
     setPlayer(filteredPlayers);
   }, [query, originalPlayer]);
 
+  // Load more
+  const handleLoadMore = () => {
+    setVisiblePlayerCount(visiblePlayerCount + 4);
+  };
+
   return (
     <div>
       <input
@@ -44,7 +52,15 @@ const Main = (props) => {
         <Loading />
       ) : (
         <div className="py-10 px-[15%] grid gap-7 grid-cols-4">
-          {player && player.map((item) => <Card key={item._id} {...item} />)}
+          {player &&
+            player
+              .slice(0, visiblePlayerCount)
+              .map((item, index) => <Card key={index} {...item} />)}
+        </div>
+      )}
+      {visiblePlayerCount < player.length && (
+        <div className="text-center mb-10">
+          <Button onClick={handleLoadMore}>Load more</Button>
         </div>
       )}
     </div>

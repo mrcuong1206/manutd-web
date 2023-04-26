@@ -1,8 +1,8 @@
 import React from "react";
 import CardProduct from "./CardProduct";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
+import axiosClient from "../../api/axios.client";
 
 const Shop = () => {
   const [product, setProduct] = React.useState([]);
@@ -12,8 +12,7 @@ const Shop = () => {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const url = "http://localhost:8000/product/";
-      const data = await axios.get(url);
+      const data = await axiosClient.get("/product");
       setProduct(data.data.data.products);
     };
     fetchData();

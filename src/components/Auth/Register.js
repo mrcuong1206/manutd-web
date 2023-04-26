@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axiosClient from "../../api/axios.client";
 
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +20,7 @@ const Register = () => {
     setPassword("");
 
     try {
-      const response = await axios.post("http://localhost:8000/register", {
+      const response = await axiosClient.post("/register", {
         fname,
         lname,
         email,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axiosClient from "../../api/axios.client";
 
 import InputForm from "../UI/InputForm";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +34,7 @@ function Login() {
 
   const handleSubmitLogin = async (value) => {
     try {
-      const response = await axios.post("http://localhost:8000/login/", value);
+      const response = await axiosClient.post("/login", value);
       if (response.data.status === "ok") {
         setSuccessMessage(alert("Đăng nhập thành công!"));
         //

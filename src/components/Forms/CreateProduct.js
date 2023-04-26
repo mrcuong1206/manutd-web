@@ -3,7 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
+import axiosClient from "../../api/axios.client";
 import InputForm from "../UI/InputForm";
 import Button from "../UI/Button";
 import { Link } from "react-router-dom";
@@ -42,7 +42,7 @@ const CreateProduct = () => {
   });
 
   const handleCreateProduct = async (value) => {
-    await axios.post("http://localhost:8000/product/", value);
+    await axiosClient.post("/product", value);
     alert("Thêm sản phẩm thành công");
     navigate("/shop");
   };

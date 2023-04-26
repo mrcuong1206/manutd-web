@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosClient from "../../api/axios.client";
 import { useParams } from "react-router-dom";
 
 const DetailsProduct = (props) => {
@@ -8,8 +8,7 @@ const DetailsProduct = (props) => {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const url = `http://localhost:8000/product/${_id}`;
-      const data = await axios.get(url);
+      const data = await axiosClient.get(`/product/${_id}`);
 
       setProduct(data.data.data.product);
     };

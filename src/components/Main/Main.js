@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import axios from "axios";
+import axiosClient from "../../api/axios.client";
 import Loading from "../UI/Loading";
 import Button from "../UI/Button";
 
@@ -14,8 +14,7 @@ const Main = (props) => {
   const [visiblePlayerCount, setVisiblePlayerCount] = React.useState(12);
 
   const fetchData = async () => {
-    const url = "http://localhost:8000/todo/";
-    const data = await axios.get(url);
+    const data = await axiosClient.get("/todo");
     setOriginalPlayer(data.data.data.todos);
     setPlayer(data.data.data.todos);
     setIsLoading(false);

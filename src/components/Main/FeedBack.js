@@ -4,9 +4,18 @@ import Button from "../UI/Button";
 
 const FeedBack = (props) => {
   const form = useRef();
+  const [error, setError] = React.useState(null);
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    const name = form.current.user_name.value;
+    const email = form.current.user_email.value;
+    const message = form.current.message.value;
+    if (!name || !email || !message) {
+      setError("Please fill in all the fields");
+      return;
+    }
 
     emailjs
       .sendForm(
@@ -23,7 +32,10 @@ const FeedBack = (props) => {
           console.log(error.text);
         }
       );
-    e.target.reset();
+    // e.target.reset();
+    // Reset form và xóa thông báo lỗi (nếu có)
+    form.current.reset();
+    setError(null);
   };
 
   return (
@@ -59,6 +71,7 @@ const FeedBack = (props) => {
               rows={10}
               className="py-3 px-4"
             ></textarea>
+            {error && <p className="text-red-500 font-bold text-xl">{error}</p>}
             <div className="mt-10">
               <Button>Send Message</Button>
             </div>

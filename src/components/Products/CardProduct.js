@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./CardProduct.module.css";
-import axios from "axios";
-
+import axiosClient from "../../api/axios.client";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../UI/Button";
@@ -11,14 +10,13 @@ const CardProduct = (props) => {
   const [product, setProduct] = React.useState([]);
 
   const fetchData = async () => {
-    const url = "http://localhost:8000/product/";
-    const data = await axios.get(url);
+    const data = await axiosClient.get("/product");
     setProduct(data.data.data.products);
   };
 
   const handleDelete = () => {
-    axios
-      .delete(`http://localhost:8000/product/${props._id}`)
+    axiosClient
+      .delete(`/product/${props._id}`)
       .then((res) => {
         toast.success("Product deleted successfully!");
         setProduct(product.filter((item) => item._id !== props._id));

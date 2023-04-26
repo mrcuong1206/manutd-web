@@ -1,6 +1,6 @@
 import React from "react";
 import "./Details.css";
-import axios from "axios";
+import axiosClient from "../../api/axios.client";
 import { useParams } from "react-router-dom";
 
 const Details = (props) => {
@@ -9,8 +9,7 @@ const Details = (props) => {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const url = `http://localhost:8000/todo/${_id}`;
-      const data = await axios.get(url);
+      const data = await axiosClient.get(`/todo/${_id}`);
       console.log(data);
       setPlayer(data.data.data.player);
     };

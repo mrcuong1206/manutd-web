@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
+import axiosClient from "../../api/axios.client";
 import { useParams } from "react-router-dom";
 import Button from "../UI/Button";
 
@@ -40,7 +40,7 @@ const Edit = () => {
     resolver: yupResolver(schema),
   });
   const fetchData = async () => {
-    const data = await axios.get(`http://localhost:8000/product/${_id}`);
+    const data = await axiosClient.get(`/product/${_id}`);
     setValue("name", data.data.data.product.name);
     setValue("stock", data.data.data.product.stock);
     setValue("price", data.data.data.product.price);
@@ -55,7 +55,7 @@ const Edit = () => {
   });
 
   const handleEditFrom = async (value) => {
-    await axios.patch(`http://localhost:8000/product/${_id}`, value);
+    await axiosClient.patch(`/product/${_id}`, value);
     fetchData();
     toast.success("Product updated successfully!");
   };

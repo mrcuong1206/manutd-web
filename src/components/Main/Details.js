@@ -17,7 +17,7 @@ const Details = (props) => {
   }, [_id]);
 
   return (
-    <main className="text-white py-28">
+    <main className="text-white py-24">
       {player.detail && (
         <div className="bg-[#3f3f3f] flex justify-evenly pt-7 px-36 ">
           <div className="flex flex-col justify-around w-1/3">

@@ -57,11 +57,11 @@ const Edit = () => {
   const handleEditFrom = async (value) => {
     await axiosClient.patch(`/product/${_id}`, value);
     fetchData();
-    toast.success("Product updated successfully!");
+    toast.success("Update sản phẩm thành công!");
   };
 
   return (
-    <div className="py-32">
+    <div className="py-28">
       <form
         onSubmit={handleSubmit(handleEditFrom)}
         className="-mt-3 bg-[#f2edf3]"

@@ -48,10 +48,10 @@ const CreateProduct = () => {
   };
 
   return (
-    <div className="py-32">
+    <div className="py-28">
       <form
         onSubmit={handleSubmit(handleCreateProduct)}
-        className="-mt-3 bg-[#f2edf3]"
+        className="-mt-3 bg-[#ccc]"
       >
         <div>
           <h1 className="text-4xl p-10 text-regal-green font-bold italic">

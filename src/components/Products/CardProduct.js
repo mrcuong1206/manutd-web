@@ -18,7 +18,7 @@ const CardProduct = (props) => {
     axiosClient
       .delete(`/product/${props._id}`)
       .then((res) => {
-        toast.success("Product deleted successfully!");
+        toast.success("Xóa sản phẩm thành công!");
         setProduct(product.filter((item) => item._id !== props._id));
       })
       .catch((err) => console.log(err));

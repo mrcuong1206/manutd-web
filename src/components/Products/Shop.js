@@ -28,7 +28,7 @@ const Shop = () => {
   };
 
   return (
-    <div className="py-32">
+    <div className="py-28">
       <div className="py-6 px-[15%] flex justify-between">
         <Link to="/create-product">
           <Button>Thêm</Button>

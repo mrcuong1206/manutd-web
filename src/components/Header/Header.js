@@ -5,13 +5,10 @@ import Menu from "./Menu";
 const Header = () => {
   return (
     <>
-      <div className="flex bg-red-500 h-17 w-full justify-between z-10 fixed top-0">
+      <div className="flex bg-red-500 w-full justify-between z-10 fixed top-0">
         <div className="flex items-center">
           <Logo />
           <Menu />
-        </div>
-        <div className="flex items-center pr-20 font-bold  text-white text-xl">
-          {/* <Link to="/">LOG OUT</Link> */}
         </div>
       </div>
     </>

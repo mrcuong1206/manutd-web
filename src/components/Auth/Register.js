@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axiosClient from "../../api/axios.client";
 
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,8 +27,9 @@ const Register = () => {
         email,
         password,
       });
-
-      if (response.status === 200) {
+      if (email === "" || fname === "" || lname === "" || password === "") {
+        alert("Vui lòng điền đầy đủ thông tin");
+      } else if (response.status === 200) {
         alert("Đăng ký thành công!");
         navigate("/");
       }
@@ -40,7 +42,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-48 bg-gray-100">
+    <div className="flex flex-col items-center justify-center py-40 bg-gray-100">
       {error && <div>{error}</div>}
       <form
         onSubmit={handleSubmit}
@@ -102,12 +104,17 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button
-          type="submit"
-          className="w-32 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Register
-        </button>
+        <div className="mt-10">
+          <button
+            type="submit"
+            className="w-32 bg-blue-500 ml-56 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Register
+          </button>
+          <Link to="/" className="hover:text-red-500 underline ml-36">
+            Login
+          </Link>
+        </div>
       </form>
     </div>
   );

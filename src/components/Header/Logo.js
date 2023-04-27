@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <div className="py-5 px-20">
+    <div className="py-3 px-20">
       <Link to="/main">
         <img
           className="cursor-pointer"

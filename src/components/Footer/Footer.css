@@ -7,11 +7,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem 5rem;
+  padding: 2rem 5rem;
 }
 
 .sponsor-items img {
-  width: 9rem;
+  width: 8rem;
   margin-left: 2rem;
   opacity: 0.5;
 }
@@ -21,15 +21,15 @@
   position: absolute;
   top: 20%;
   right: 7%;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .contact-items {
   font-size: 2.6rem;
   color: white;
   font-weight: bold;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
   border: 3px solid white;
   position: relative;
@@ -52,7 +52,7 @@
 }
 
 .reyc {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: none;
   color: white;
   position: absolute;
@@ -61,5 +61,5 @@
   opacity: 0.5;
   font-style: italic;
   letter-spacing: 1.5px;
-  padding-top: 2.5rem;
+  padding-top: 1.5rem;
 }

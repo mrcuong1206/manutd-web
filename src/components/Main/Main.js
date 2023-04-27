@@ -41,7 +41,7 @@ const Main = (props) => {
   return (
     <div>
       <input
-        className="m-auto  mt-36 placeholder:italic placeholder:text-slate-400 block bg-white w-96 border border-slate-300 rounded-md py-4 pl-5 pr-3 shadow-sm focus:outline-none focus:border-blue-500  sm:text-sm"
+        className="m-auto  mt-32 placeholder:italic placeholder:text-slate-400 block bg-white w-96 border border-slate-300 rounded-md py-4 pl-5 pr-3 shadow-sm focus:outline-none focus:border-blue-500  sm:text-sm"
         placeholder="Search player..."
         type="text"
         value={query}
